@@ -15,11 +15,6 @@ dcv="1.26.0"
 # ファイアウォールの起動
 echo $pass | sudo ufw enable
 
-# ネットワークドライバのインストール Realtek_r8125
-cd r8125-9.006.04
-echo $pass | sudo bash autorun.sh
-cd ..
-
 # packageの最新化
 echo $pass | sudo apt update
 
@@ -59,4 +54,9 @@ docker-compose --version
 
 # docker作業用ディレクトリを作成
 mkdir ../docker
+
+# ネットワークドライバのインストール Realtek_r8125
+cd lan_driver
+docker-compose up
+cd ..
 
