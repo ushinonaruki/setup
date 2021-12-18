@@ -52,9 +52,6 @@ echo $pass | sudo chmod +x /usr/local/bin/docker-compose
 # docker-composeの実行確認
 docker-compose --version
 
-# docker作業用ディレクトリを作成
-mkdir ../docker
-
 # ネットワークドライバのインストール Realtek_r8125
 cd lan_driver
 docker-compose up
