@@ -51,7 +51,6 @@ echo $pass | yes | sudo apt install docker-ce
 
 # SudoなしでDockerコマンドを実行できるよう設定
 echo $pass | sudo usermod -aG docker ${USER}
-echo $pass | su - ${USER}
 
 # echo: docker
 echo '----- docker-compose -----'
@@ -67,7 +66,7 @@ echo '----- lan driver -----'
 
 # ネットワークドライバのインストール Realtek_r8125
 cd lan_driver
-docker-compose up
+echo $pass | sudo docker-compose up -d
 
 
 # echo: 実行確認
@@ -77,14 +76,10 @@ echo '----- 実行確認 -----'
 echo '----- git version -----'
 git version
 
-# ユーザーがdockerグループに追加されたことを確認
-echo '----- id -nG -----'
-id -nG
-
 # dockerの実行確認
-echo '----- sudo systemctl status docker -----'
-docker version
+echo '----- docker version -----'
+echo $pass | sudo docker version
 
 # docker-composeの実行確認
 echo '----- docker-compose --version -----'
-docker-compose --version
+echo $pass | sudo docker-compose --version
