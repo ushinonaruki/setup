@@ -66,7 +66,8 @@ echo '----- lan driver -----'
 
 # ネットワークドライバのインストール Realtek_r8125
 cd lan_driver
-echo $pass | sudo docker-compose up -d
+echo $pass | sudo docker-compose up
+echo $pass | sudo docker-compose down
 
 
 # echo: 実行確認
@@ -83,3 +84,7 @@ echo $pass | sudo docker version
 # docker-composeの実行確認
 echo '----- docker-compose --version -----'
 echo $pass | sudo docker-compose --version
+
+
+# ログインし直さずにユーザー切り替え
+su - ${USER}
